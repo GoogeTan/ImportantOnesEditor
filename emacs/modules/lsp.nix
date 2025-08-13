@@ -3,7 +3,7 @@
 {
   emacsConfig.lspBaseConfig = {
     nixPackages = [];
-    emacsPackages = epkgs: [ epkgs.lsp-mode epkgs.lsp-ui epkgs.company ];
+    emacsPackages = epkgs: [ epkgs.lsp-mode epkgs.lsp-ui epkgs.company epkgs.company-box ];
     configText = ''
       (require 'lsp-mode)
       (require 'lsp-ui)
@@ -14,6 +14,9 @@
       (setq lsp-idle-delay 0.500)
       (setq company-minimum-prefix-length 1
             company-idle-delay 0.0)
+
+      (require 'company-box)
+      (add-hook 'company-mode-hook 'company-box-mode)
     '';
   };
 
